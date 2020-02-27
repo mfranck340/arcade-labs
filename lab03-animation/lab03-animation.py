@@ -52,13 +52,9 @@ def on_draw(delta_time):
     draw_arbol_grande(0)
     draw_arbol_grande(400)
     draw_arbol_grande(800)
+    draw_coche(on_draw.mov_x)
+    on_draw.mov_x += 10 * delta_time
 
-    if on_draw.mov_x < 0:
-        draw_coche(on_draw.mov_x)
-        on_draw.mov_x += 20 * delta_time
-    else:
-        draw_coche(on_draw.mov_x)
-        on_draw.mov_x -= 20 * delta_time
 
 on_draw.mov_x = 0
 
