@@ -108,6 +108,7 @@ def draw_section_8():
             x = 10 * column + 905 + p  # Instead of zero, calculate the proper x location using 'column'
             y = row * 10 + 306  # Instead of zero, calculate the proper y location using 'row'
             arcade.draw_rectangle_filled(x, y, 5, 5, arcade.color.WHITE)
+
         f += 1
         p -= 10
 
