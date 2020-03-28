@@ -73,7 +73,7 @@ def main():
             cansancio_camello = 0
             print("Descansando...")
             print("El camello está contento :D")
-            recorrido_nativos += random.randint(7,14)
+            recorrido_nativos += random.randint(7, 14)
 
         elif opcion == "E":
             print("Millas recorridas: ", recorrido_jugador)
@@ -91,9 +91,9 @@ def main():
             done = True
 
         #Indicaciones del cansancio del camello
-        if cansancio_camello > 5 and not estado_camello:
+        if cansancio_camello > 5:
             print("Tu camello está cansado. Tal vez deberías descansar")
-        if cansancio_camello == 8 and not estado_camello:
+        if cansancio_camello == 8:
             print("Tu camello a muerto. Pronto te atraparan :(")
             print("Fin del juego")
             done = True
