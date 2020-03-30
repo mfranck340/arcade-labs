@@ -50,6 +50,15 @@ class Coche():
         self.y += self.change_y
         self.x += self.change_x
 
+        if self.x < 25:
+            self.x = 25
+        if self.x > SCREEN_WIDTH - 25:
+            self.x = SCREEN_WIDTH - 25
+        if self.y < 15:
+            self.y = 15
+        if self.y > SCREEN_HEIGHT - 15:
+            self.y = SCREEN_HEIGHT - 15
+
 
 class MyGame(arcade.Window):
     """ Our Custom Window Class"""
