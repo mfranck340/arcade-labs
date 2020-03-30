@@ -26,6 +26,8 @@ class Coche():
         self.change_y = change_y
         self.color = color
 
+        self.son = arcade.sound.load_sound("sounds/pacman-waka-waka.mp3")
+
     def draw(self):
         "Dibuja un coche"
         arcade.draw_rectangle_outline(-21 + self.x, -6 + self.y, 15, 10, arcade.color.BLACK, 5)
@@ -50,18 +52,23 @@ class Coche():
         self.y += self.change_y
         self.x += self.change_x
 
-        if self.x < 25:
-            self.x = 25
-        if self.x > SCREEN_WIDTH - 25:
-            self.x = SCREEN_WIDTH - 25
-        if self.y < 15:
-            self.y = 15
-        if self.y > SCREEN_HEIGHT - 15:
-            self.y = SCREEN_HEIGHT - 15
+        if self.x < 30:
+            self.x = 30
+            arcade.sound.play_sound(self.son)
+        if self.x > SCREEN_WIDTH - 35:
+            self.x = SCREEN_WIDTH - 35
+            arcade.sound.play_sound(self.son)
+        if self.y < 22:
+            self.y = 22
+            arcade.sound.play_sound(self.son)
+        if self.y > SCREEN_HEIGHT - 14:
+            self.y = SCREEN_HEIGHT - 14
+            arcade.sound.play_sound(self.son)
 
 
 class MyGame(arcade.Window):
     """ Our Custom Window Class"""
+
     def __init__(self):
         """ Initializer """
         # Call the parent class initializer
@@ -70,8 +77,8 @@ class MyGame(arcade.Window):
         arcade.set_background_color(arcade.color.APPLE_GREEN)
 
         self.set_mouse_visible(False)
-
         self.coche = Coche(400, 300, 0, 0, arcade.color.BANANA_YELLOW)
+        self.son1 = arcade.sound.load_sound("sounds/CARHORN.mp3")
 
     def on_draw(self):
         arcade.start_render()
@@ -98,6 +105,12 @@ class MyGame(arcade.Window):
             self.coche.change_x = 0
         elif key == arcade.key.UP or key == arcade.key.DOWN:
             self.coche.change_y = 0
+
+    def on_mouse_press(self, x, y, button, modifiers):
+        """ Called when the user presses a mouse button. """
+        if button == arcade.MOUSE_BUTTON_LEFT:
+            arcade.sound.play_sound(self.son1)
+
 
 
 def main():
